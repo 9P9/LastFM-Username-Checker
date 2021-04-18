@@ -66,12 +66,12 @@ function check(username) {
     }, (err, res, body) => {
         if (res && res.statusCode === 200) {
             unavailable++;
-            console.log(chalk.red("[%s] (%s/%s/%s) [Unavailable] Username: %s | "), res.statusCode, available, checked, usernames.length, username);
+            console.log(chalk.red("[%s] (%s/%s/%s) [Unavailable] Username: %s  "), res.statusCode, available, checked, usernames.length, username);
             write(username + "\n", "usernames/unavailable.txt");
 		}
 		else if (res && res.statusCode === 404) {
 			available++;
-			console.log(chalk.green(`[%s] (%s/%s/%s) [Available] Username: %s |`), res.statusCode, available, checked, usernames.length, username);
+			console.log(chalk.green(`[%s] (%s/%s/%s) [Available] Username: %s `), res.statusCode, available, checked, usernames.length, username);
 			write(username + "\n", "usernames/available.txt");
 
         } else if (res && res.statusCode === 429) {
